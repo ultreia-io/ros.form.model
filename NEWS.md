@@ -1,3 +1,11 @@
+# ros.form.model 0.2.0
+
+- Define primary keys for ROS table sheets.
+- Declare code lists and registries separately, with field-level checks in all six models.
+- Align the V4 data-source reference with the IOTC catalogue.
+- Document the code-list and registry inventory.
+- Update `form.model` from 0.3.1 to 0.4.0.
+
 # ros.form.model 0.1.1
 
 - Update dependency from `form.model` 0.3.0 to 0.3.1.
