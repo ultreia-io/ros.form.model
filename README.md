@@ -36,11 +36,17 @@ library(ros.form.model)
 model <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
 names(form.model::form_sheets(model))
 form.model::form_fields(model, sheet = "META")
+form.model::form_code_lists(model)
+form.model::form_registries(model)
 ```
 
-This displays the expected sheets and the META field definitions. It does not open a submitted Excel file.
+This displays the expected sheets, META fields, code lists and registries.
+It does not open a submitted Excel file.
 
 Follow [Choose and inspect a form](https://ultreia-io.github.io/ros.form.model/articles/inspect-form.html) for gear, version and coordinate examples.
+
+See [ROS reference data](https://ultreia-io.github.io/ros.form.model/articles/reference-data.html)
+for code-list views and catalogue gaps.
 
 ## Further information
 

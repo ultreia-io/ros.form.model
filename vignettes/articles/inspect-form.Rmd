@@ -38,6 +38,34 @@ Field identifiers combine the exact sheet name and field name: `<sheet>.<field>`
 
 Cell layouts declare fixed coordinates. Table fields follow column order; the layout gives the starting row.
 
+## Inspect primary keys
+
+Table sheets declare ordered primary keys using the field names of each supported version.
+
+```{r, eval=FALSE}
+form.model::form_sheets(model)[["E-SET-CATCHES"]]$primary_key
+```
+
+The declarations identify rows within each sheet of a submitted form:
+
+- `V-TRIP`: trip.
+- `E-SET`: trip and set.
+- `E-SET-CATCHES`: trip, set and catch.
+- Both specimen sheets: trip, set, catch and specimen.
+- Tag details: trip, set, catch and specimen.
+- Branchline configurations: trip, configuration and section.
+- Hooks: trip, set and hook type.
+- Baits: trip, set, species and condition.
+- Lights: trip, set, light type and colour.
+- Branchlines and hauling biteoffs: trip, set and configuration.
+- Surface or daily activities: trip and activity datetime.
+
+Version 3.3.0 uses the corresponding `*_number` fields; versions 4.0.0 and 4.1.0 use `*_id` fields.
+
+These entries apply where the corresponding sheet exists; inspect `primary_key` for its exact field names.
+
+These are model declarations; submitted-data checks must be implemented by `form.validation`.
+
 ## Locate a field from a report
 
 ```{r, eval=FALSE}
