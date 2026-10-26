@@ -1,0 +1,178 @@
+---
+title: "ROS reference data"
+output: html_document
+---
+
+The six LL and PS models declare 58 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
+
+Each model also declares the registries used to check officers, observers,
+vessels and contacts. Registry matching policies belong to the affected fields;
+the registry data remains separate from the models.
+
+This inventory compares the model declarations with the IOTC dissemination view mapping and the
+[ROS code-list catalogue](https://ros.ultreia.io/references/code_lists/codelists.csv)
+published on 26 October 2026.
+
+All 58 code-list IDs have exact catalogue entries. 8 IDs have an associated database view.
+A dash in the view column means no view is declared in the dissemination mapping.
+
+For 4.0.0 LL, `sample_collected_type` uses `refs_biology.biological_materials`.
+The workbook header still links to `sampleTypes`; the model follows the agreed
+code-list mapping.
+
+For 4.0.0 and 4.1.0 PS, `sample_collected_type` and
+`sample_collected_preservation_method` use `refs_biology.biological_materials`
+and `refs_biology.sample_preservation_methods`, respectively. Their workbook
+headers link to sampling methods and fish storage types instead.
+
+All three LL models use `refs_biology.species_predators` for observed predators.
+For hook types, 4.0.0 LL uses `refs_fishery.hook_types` in both hook fields,
+while 4.1.0 LL uses `refs_fishery.hook_and_terminal_devices` in `E-SET-HOOKS`
+and `refs_fishery.hook_types` in the specimen SSI sheet.
+
+## Code lists declared by the models
+
+### `refs_admin` (3)
+
+| ROS reference          | Source view  | Catalogue CSV   |
+| ---------------------- | ------------ | --------------- |
+| `refs_admin.countries` | —            | `COUNTRIES.csv` |
+| `refs_admin.entities`  | `V_ENTITIES` | `ENTITIES.csv`  |
+| `refs_admin.ports`     | —            | `PORTS.csv`     |
+
+### `refs_biology` (27)
+
+| ROS reference                                            | Source view                  | Catalogue CSV                                   |
+| -------------------------------------------------------- | ---------------------------- | ----------------------------------------------- |
+| `refs_biology.bait_conditions`                           | —                            | `BAIT_CONDITIONS.csv`                           |
+| `refs_biology.bait_types`                                | —                            | `BAIT_TYPES.csv`                                |
+| `refs_biology.biological_materials`                      | —                            | `BIOLOGICAL_MATERIALS.csv`                      |
+| `refs_biology.depredation_sources`                       | —                            | `DEPREDATION_SOURCES.csv`                       |
+| `refs_biology.fates`                                     | —                            | `FATES.csv`                                     |
+| `refs_biology.gear_interactions`                         | —                            | `GEAR_INTERACTIONS.csv`                         |
+| `refs_biology.handling_methods`                          | —                            | `HANDLING_METHODS.csv`                          |
+| `refs_biology.incidental_captures_conditions`            | —                            | `INCIDENTAL_CAPTURES_CONDITIONS.csv`            |
+| `refs_biology.individual_conditions`                     | —                            | `INDIVIDUAL_CONDITIONS.csv`                     |
+| `refs_biology.maturity_stages`                           | —                            | `MATURITY_STAGES.csv`                           |
+| `refs_biology.measurement_tools`                         | —                            | `MEASUREMENT_TOOLS.csv`                         |
+| `refs_biology.measurements`                              | —                            | `MEASUREMENTS.csv`                              |
+| `refs_biology.sample_preservation_methods`               | —                            | `SAMPLE_PRESERVATION_METHODS.csv`               |
+| `refs_biology.sampling_methods_for_catch_estimation`     | —                            | `SAMPLING_METHODS_FOR_CATCH_ESTIMATION.csv`     |
+| `refs_biology.sampling_methods_for_sampling_collections` | —                            | `SAMPLING_METHODS_FOR_SAMPLING_COLLECTIONS.csv` |
+| `refs_biology.sampling_periods`                          | —                            | `SAMPLING_PERIODS.csv`                          |
+| `refs_biology.sampling_protocols`                        | —                            | `SAMPLING_PROTOCOLS.csv`                        |
+| `refs_biology.scars`                                     | —                            | `SCARS.csv`                                     |
+| `refs_biology.sex`                                       | —                            | `SEX.csv`                                       |
+| `refs_biology.species`                                   | `V_SPECIES`                  | `SPECIES.csv`                                   |
+| `refs_biology.species_baits`                             | `V_SPECIES_BAITS`            | `SPECIES_BAITS.csv`                             |
+| `refs_biology.species_cetaceans`                         | `V_SPECIES_CETACEANS`        | `SPECIES_CETACEANS.csv`                         |
+| `refs_biology.species_predators`                         | `V_SPECIES_PREDATORS`        | `SPECIES_PREDATORS.csv`                         |
+| `refs_biology.tag_types`                                 | —                            | `TAG_TYPES.csv`                                 |
+| `refs_biology.types_of_fate`                             | —                            | `TYPES_OF_FATE.csv`                             |
+| `refs_biology.weight_measurement_tools`                  | `V_WEIGHT_MEASUREMENT_TOOLS` | `WEIGHT_MEASUREMENT_TOOLS.csv`                  |
+| `refs_biology.weight_measurements`                       | `V_WEIGHT_MEASUREMENTS`      | `WEIGHT_MEASUREMENTS.csv`                       |
+
+### `refs_data` (2)
+
+| ROS reference                 | Source view    | Catalogue CSV           |
+| ----------------------------- | -------------- | ----------------------- |
+| `refs_data.data_sources_ro`   | `V_SOURCES_RO` | `DATA_SOURCES_RO.csv`   |
+| `refs_data.logical_responses` | —              | `LOGICAL_RESPONSES.csv` |
+
+### `refs_fishery` (24)
+
+| ROS reference                             | Source view | Catalogue CSV                    |
+| ----------------------------------------- | ----------- | -------------------------------- |
+| `refs_fishery.branchline_storages`        | —           | `BRANCHLINE_STORAGES.csv`        |
+| `refs_fishery.dehooker_types`             | —           | `DEHOOKER_TYPES.csv`             |
+| `refs_fishery.fad_raft_designs`           | —           | `FAD_RAFT_DESIGNS.csv`           |
+| `refs_fishery.fad_tail_designs`           | —           | `FAD_TAIL_DESIGNS.csv`           |
+| `refs_fishery.fish_preservation_methods`  | —           | `FISH_PRESERVATION_METHODS.csv`  |
+| `refs_fishery.fish_processing_types`      | —           | `FISH_PROCESSING_TYPES.csv`      |
+| `refs_fishery.fish_storage_types`         | —           | `FISH_STORAGE_TYPES.csv`         |
+| `refs_fishery.hook_and_terminal_devices`  | —           | `HOOK_AND_TERMINAL_DEVICES.csv`  |
+| `refs_fishery.hook_types`                 | —           | `HOOK_TYPES.csv`                 |
+| `refs_fishery.hull_material_types`        | —           | `HULL_MATERIAL_TYPES.csv`        |
+| `refs_fishery.light_colours`              | —           | `LIGHT_COLOURS.csv`              |
+| `refs_fishery.light_types`                | —           | `LIGHT_TYPES.csv`                |
+| `refs_fishery.line_material_types`        | —           | `LINE_MATERIAL_TYPES.csv`        |
+| `refs_fishery.mitigation_devices`         | —           | `MITIGATION_DEVICES.csv`         |
+| `refs_fishery.offal_management_types`     | —           | `OFFAL_MANAGEMENT_TYPES.csv`     |
+| `refs_fishery.reasons_days_lost`          | —           | `REASONS_DAYS_LOST.csv`          |
+| `refs_fishery.school_detection_methods`   | —           | `SCHOOL_DETECTION_METHODS.csv`   |
+| `refs_fishery.school_sighting_cues`       | —           | `SCHOOL_SIGHTING_CUES.csv`       |
+| `refs_fishery.school_type_categories`     | —           | `SCHOOL_TYPE_CATEGORIES.csv`     |
+| `refs_fishery.streamer_types`             | —           | `STREAMER_TYPES.csv`             |
+| `refs_fishery.surface_fishery_activities` | —           | `SURFACE_FISHERY_ACTIVITIES.csv` |
+| `refs_fishery.vessel_sections`            | —           | `VESSEL_SECTIONS.csv`            |
+| `refs_fishery.waste_categories`           | —           | `WASTE_CATEGORIES.csv`           |
+| `refs_fishery.waste_disposal_methods`     | —           | `WASTE_DISPOSAL_METHODS.csv`     |
+
+### `refs_fishery_config` (2)
+
+| ROS reference                        | Source view | Catalogue CSV        |
+| ------------------------------------ | ----------- | -------------------- |
+| `refs_fishery_config.gears`          | —           | `GEARS.csv`          |
+| `refs_fishery_config.target_species` | —           | `TARGET_SPECIES.csv` |
+
+## Code-list aliases
+
+The `IOTC_Ros_4_0_0` database supplies 143 usable `code_orig` mappings for 23
+code lists. Another 21 text aliases for `refs_data.logical_responses` map common
+true, false and unknown spellings to `TRUE`, `FALSE` and `UNK`. Numeric values
+are not aliases. All mappings are shared by the model versions using each list.
+They leave submitted values and the published CSV files unchanged.
+The complete mapping is bundled in `ros.form.validation/inst/code-list-aliases.csv`.
+
+| Code list                                                |           Aliases |
+|----------------------------------------------------------|------------------:|
+| `refs_biology.bait_conditions`                           |                 7 |
+| `refs_biology.bait_types`                                |                 4 |
+| `refs_biology.fates`                                     |                18 |
+| `refs_biology.handling_methods`                          |                 1 |
+| `refs_biology.measurements`                              |                 1 |
+| `refs_biology.sampling_methods_for_catch_estimation`     |                 7 |
+| `refs_biology.sampling_methods_for_sampling_collections` |                 8 |
+| `refs_biology.sampling_protocols`                        |                 4 |
+| `refs_biology.sex`                                       |                 2 |
+| `refs_biology.tag_types`                                 |                 8 |
+| `refs_data.logical_responses`                            |                21 |
+| `refs_fishery.branchline_storages`                       |                 3 |
+| `refs_fishery.fad_raft_designs`                          |                 4 |
+| `refs_fishery.fad_tail_designs`                          |                 5 |
+| `refs_fishery.fish_preservation_methods`                 |                 1 |
+| `refs_fishery.hull_material_types`                       |                 6 |
+| `refs_fishery.line_material_types`                       |                15 |
+| `refs_fishery.mitigation_devices`                        |                13 |
+| `refs_fishery.offal_management_types`                    |                 2 |
+| `refs_fishery.reasons_days_lost`                         |                 4 |
+| `refs_fishery.school_detection_methods`                  |                 5 |
+| `refs_fishery.school_sighting_cues`                      |                18 |
+| `refs_fishery.streamer_types`                            |                 3 |
+| `refs_fishery_config.gears`                              |                 4 |
+| **Total**                                                |           **164** |
+
+## Registries declared by the models
+
+All six models use the four registry tables below. Their snapshots are listed in the
+[private ROS registry catalogue](https://ros.ultreia.io/references/registries/registries.csv).
+Access requires the separate registry account.
+
+| Registry table         | Checked columns                                                                                         | Catalogue CSV              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `ros_meta.contact`     | `full_name`                                                                                             | `ros_meta.contact.csv`     |
+| `ros_meta.focal_point` | `email`, `full_name`                                                                                    | `ros_meta.focal_point.csv` |
+| `ros_meta.observer`    | `full_name`, `iotc_observer_identifier`                                                                 | `ros_meta.observer.csv`    |
+| `ros_meta.vessel`      | `imo_identifier`, `iotc_vessel_identifier`, `ircs_identifier`, `registration_identifier`, `vessel_name` | `ros_meta.vessel.csv`      |
+
+Registry aliases belong to the validation reference data, not to individual
+form models. The shared `ros.form.validation/inst/registry-aliases.csv` contains:
+
+| Registry               | Column        | Submitted alias | Registry value |
+| ---------------------- | ------------- | --------------- | -------------- |
+| `ros_meta.focal_point` | `full_name`   | Chia Chun WU    | WU JIA CHUN    |
+| `ros_meta.focal_point` | `full_name`   | Chia-Chun WU    | WU JIA CHUN    |
+| `ros_meta.vessel`      | `vessel_name` | CLIPPERTON      | LE CLIPPERTON  |
+| `ros_meta.vessel`      | `vessel_name` | MARIUS 3        | LE MARIUS 3    |
+
+The catalogue also contains `ros_meta.observer_identifier_mapping`; no form model declares it.

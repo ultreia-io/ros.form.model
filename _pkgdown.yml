@@ -18,6 +18,7 @@ articles:
     navbar: Guides
     contents:
       - articles/inspect-form
+      - articles/reference-data
 
 footer:
   structure:
