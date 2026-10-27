@@ -247,7 +247,7 @@ sheets:
       shark_lines_number: {type: integer}
       leader_material_type: {mandatory: true, type: string, code_list: refs_fishery.line_material_types}
       leader_material_percentage: {mandatory: true, type: number}
-      branchline_length_minimum_value: {mandatory: true, type: number}
+      branchline_length_minimum_value: {mandatory: true, type: number, maximum_field: branchline_length_maximum_value}
       branchline_length_minimum_unit: {mandatory: true, type: string, required_field: branchline_length_minimum_value, enum: [m]}
       branchline_length_maximum_value: {mandatory: true, type: number}
       branchline_length_maximum_unit: {mandatory: true, type: string, required_field: branchline_length_maximum_value, enum: [m]}
