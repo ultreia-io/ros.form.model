@@ -92,6 +92,7 @@ sheets:
   V-INFO:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       vessel_information_identification_name: {type: string, registry: {id: ros_meta.vessel, column: vessel_name, matching: name, severity: warning}}
@@ -128,6 +129,7 @@ sheets:
   V-TRIP:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       trip_details_vessel_departure_port_country_code: {type: string, code_list: refs_admin.countries}
@@ -143,6 +145,7 @@ sheets:
   V-ATTRIBUTES:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       vessel_attributes_tonnage_value: {type: number}
@@ -197,6 +200,7 @@ sheets:
   G-GENERAL:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       special_equipment_or_machinery_line_setter: {mandatory: true, type: boolean}
@@ -234,6 +238,7 @@ sheets:
   G-CONFIG-BRANCHLINES:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, branchline_configurations_configuration_number, branchline_configurations_section_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       branchline_configurations_configuration_number: {mandatory: true, type: string}
@@ -246,6 +251,7 @@ sheets:
   E-SET:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -274,6 +280,7 @@ sheets:
   E-SET-LIGHTS:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, setting_operations_attached_lights_type_code, setting_operations_attached_lights_color_code]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -283,6 +290,7 @@ sheets:
   E-SET-BRANCHLINES:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, setting_operations_branchline_details_configuration_number]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -291,6 +299,7 @@ sheets:
   E-SET-HOOKS:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, setting_operations_hooks_details_type_code]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -300,6 +309,7 @@ sheets:
   E-SET-BAITS:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, setting_operations_baits_details_bait_species_code, setting_operations_baits_details_bait_condition_code]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -310,6 +320,7 @@ sheets:
   E-SET-MITIGATION-MEASURES:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -328,6 +339,7 @@ sheets:
   E-SET-HAULING:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -352,6 +364,7 @@ sheets:
   E-SET-HAULING-BITEOFFS:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, hauling_operations_biteoffs_details_branchline_configuration_number]
+    parent_key: {sheet: E-SET-HAULING, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -360,6 +373,7 @@ sheets:
   E-SET-CATCHES:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, catch_number]
+    parent_key: {sheet: E-SET, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -376,6 +390,7 @@ sheets:
   E-SET-CATCHES-SPECIMEN:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, catch_number, specimen_number]
+    parent_key: {sheet: E-SET-CATCHES, fields: [observed_trip_number, set_number, catch_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
@@ -412,6 +427,7 @@ sheets:
   E-SET-CATCHES-SPECIMEN-SSI:
     layout: {kind: table, start_row: 6}
     primary_key: [observed_trip_number, set_number, catch_number, specimen_number]
+    parent_key: {sheet: E-SET-CATCHES-SPECIMEN, fields: [observed_trip_number, set_number, catch_number, specimen_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
