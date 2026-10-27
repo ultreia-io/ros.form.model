@@ -235,7 +235,7 @@ sheets:
       number_of_fish: {mandatory: true, type: integer}
       weight_processing_type: {mandatory: true, type: string, code_list: refs_fishery.fish_processing_types}
       weight_value: {mandatory: true, type: number}
-      weight_unit: {mandatory: true, type: string, required_field: weight_value}
+      weight_unit: {mandatory: true, type: string, required_field: weight_value, enum: [KG, T]}
       weight_estimation_method: {mandatory: true, type: string, code_list: refs_biology.weight_measurement_tools}
   E-SET-CATCH-SPECIMENS:
     layout: {kind: table, start_row: 3}
