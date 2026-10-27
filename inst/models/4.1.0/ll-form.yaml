@@ -76,7 +76,7 @@ sheets:
     layout: {kind: table, start_row: 5}
     primary_key: [observed_trip_id]
     fields:
-      observed_trip_id: {mandatory: true, type: string}
+      observed_trip_id: {mandatory: true, type: string, pattern: '^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])/[^/[:space:]]+/[^/[:space:]]+/LL$'}
       observer_identification_iotc_id: {mandatory: true, type: string, registry: {id: ros_meta.observer, column: iotc_observer_identifier}}
       observer_identification_full_name: {type: string, registry: {id: ros_meta.observer, column: full_name, matching: name, severity: warning}}
       observer_trip_details_embarkation_in_port_country: {type: string, code_list: refs_admin.countries}
