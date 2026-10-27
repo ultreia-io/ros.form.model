@@ -368,7 +368,7 @@ sheets:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
       catch_id: {mandatory: true, type: string}
-      specimen_id: {mandatory: true, type: string}
+      specimen_id: {mandatory: true, type: string, pattern: '^[0-9]{4}$'}
       sampling_period: {mandatory: true, type: string, code_list: refs_biology.sampling_periods}
       sampling_method: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_sampling_collections}
       length_1_type: {mandatory: true, type: string, code_list: refs_biology.measurements}
