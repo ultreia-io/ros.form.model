@@ -362,7 +362,7 @@ sheets:
       length_1_is_straight: {mandatory: true, type: string, code_list: refs_data.logical_responses}
       length_2_type: {type: string, required_field: length_2_value_cm, code_list: refs_biology.measurements}
       length_2_value_cm: {type: number, required_field: length_2_type}
-      length_2_measuring_tool: {type: string, code_list: refs_biology.measurement_tools}
+      length_2_measuring_tool: {type: string, required_field: length_2_value_cm, code_list: refs_biology.measurement_tools}
       length_2_is_straight: {type: string, code_list: refs_data.logical_responses}
       weight_processing_type: {type: string, code_list: refs_fishery.fish_processing_types}
       weight_value_kg: {type: number}
