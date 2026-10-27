@@ -102,6 +102,7 @@ sheets:
   V-INFO:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       identification_name: {mandatory: true, type: string, registry: {id: ros_meta.vessel, column: vessel_name, matching: name, severity: warning}}
@@ -122,6 +123,7 @@ sheets:
   V-TRIP:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       vessel_departure_port_country: {type: string, code_list: refs_admin.countries}
@@ -137,6 +139,7 @@ sheets:
   V-ATTRIBUTES:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       vessel_attributes_gross_tonnage: {type: integer}
@@ -182,6 +185,7 @@ sheets:
   G-GENERAL:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       special_equipment_or_machinery_line_setter_shooter: {mandatory: true, type: string, code_list: refs_data.logical_responses}
@@ -190,6 +194,7 @@ sheets:
   G-CONFIG-BRANCHLINES:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, branchline_configurations_configuration_id, branchline_configurations_section_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       branchline_configurations_configuration_id: {type: string}
@@ -204,6 +209,7 @@ sheets:
   G-CONFIG-MITIGATION-DEVICES:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       tori_line_details_tori_line_length: {mandatory: true, type: number}
@@ -224,6 +230,7 @@ sheets:
   E-SET:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id, set_id]
+    parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -258,6 +265,7 @@ sheets:
   E-SET-LIGHTS:
     layout: {kind: table, start_row: 2}
     primary_key: [observed_trip_id, set_id, type, colour]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -267,6 +275,7 @@ sheets:
   E-SET-MITIGATION-MEASURES:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -286,6 +295,7 @@ sheets:
   E-SET-HOOKS:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, hooks_type]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -295,6 +305,7 @@ sheets:
   E-SET-BAITS:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, bait_species, bait_condition]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -305,6 +316,7 @@ sheets:
   E-SET-HAULING:
     layout: {kind: table, start_row: 4}
     primary_key: [observed_trip_id, set_id]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -326,6 +338,7 @@ sheets:
   E-SET-HAULING-BITEOFFS:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, branchline_configuration_id]
+    parent_key: {sheet: E-SET-HAULING, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -334,6 +347,7 @@ sheets:
   E-SET-CATCHES:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, catch_id]
+    parent_key: {sheet: E-SET, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -342,18 +356,19 @@ sheets:
       fate_type: {mandatory: true, type: string, code_list: refs_biology.types_of_fate}
       fate_code: {mandatory: true, type: string, code_list: refs_biology.fates}
       sampling_method: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_catch_estimation}
-      number_of_fish: {mandatory: true, type: integer}
+      number_of_fish: {mandatory: true, type: integer, minimum: 1}
       weight_processing_type: {type: string, code_list: refs_biology.weight_measurements}
       weight_value_kg: {type: number}
       weight_estimation_method: {type: string, code_list: refs_biology.weight_measurement_tools}
   E-SET-CATCH-SPECIMENS:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, catch_id, specimen_id]
+    parent_key: {sheet: E-SET-CATCHES, fields: [observed_trip_id, set_id, catch_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
       catch_id: {mandatory: true, type: string}
-      specimen_id: {mandatory: true, type: string}
+      specimen_id: {mandatory: true, type: string, pattern: '^[0-9]{4}$', sequence: {start: 1, group_by: [observed_trip_id, set_id, catch_id]}}
       sampling_period: {mandatory: true, type: string, code_list: refs_biology.sampling_periods}
       sampling_method: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_sampling_collections}
       length_1_type: {mandatory: true, type: string, code_list: refs_biology.measurements}
@@ -378,6 +393,7 @@ sheets:
   E-SET-CATCH-SPECIMENS-SSI:
     layout: {kind: table, start_row: 3}
     primary_key: [observed_trip_id, set_id, catch_id, specimen_id]
+    parent_key: {sheet: E-SET-CATCH-SPECIMENS, fields: [observed_trip_id, set_id, catch_id, specimen_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
@@ -402,6 +418,7 @@ sheets:
   E-SET-TAG-DETAILS:
     layout: {kind: table, start_row: 2}
     primary_key: [observed_trip_id, set_id, catch_id, specimen_id]
+    parent_key: {sheet: E-SET-CATCH-SPECIMENS, fields: [observed_trip_id, set_id, catch_id, specimen_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
