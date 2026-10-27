@@ -357,7 +357,7 @@ sheets:
       fate_type: {mandatory: true, type: string, code_list: refs_biology.types_of_fate}
       fate_code: {mandatory: true, type: string, code_list: refs_biology.fates}
       sampling_method: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_catch_estimation}
-      number_of_fish: {mandatory: true, type: integer}
+      number_of_fish: {mandatory: true, type: integer, minimum: 1}
       weight_processing_type: {type: string, code_list: refs_biology.weight_measurements}
       weight_value_kg: {type: number}
       weight_estimation_method: {type: string, code_list: refs_biology.weight_measurement_tools}
