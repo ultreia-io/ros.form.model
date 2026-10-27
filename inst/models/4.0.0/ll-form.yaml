@@ -68,7 +68,7 @@ sheets:
       submission_date: {mandatory: true, location: D13, type: date}
       reporting_year: {mandatory: true, location: D18, type: integer, minimum: 1000, maximum: 9999}
       reporting_entity: {mandatory: true, location: D19, type: string, code_list: refs_admin.entities}
-      reporting_country_code: {mandatory: true, location: D20, type: string}
+      reporting_country_code: {mandatory: true, location: D20, type: string, code_list: refs_admin.countries}
       data_source: {mandatory: true, location: D21, type: string, code_list: refs_data.data_sources_ro}
       # comments: {location: C26, type: string}
   O-INFO:
