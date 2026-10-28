@@ -31,7 +31,7 @@ references:
     - refs_fishery.fish_preservation_methods
     - refs_fishery.fish_processing_types
     - refs_fishery.fish_storage_types
-    - refs_fishery.hook_types
+    - refs_fishery.hook_and_terminal_devices
     - refs_fishery.hull_material_types
     - refs_fishery.light_colours
     - refs_fishery.light_types
@@ -303,7 +303,7 @@ sheets:
     fields:
       observed_trip_number: {mandatory: true, type: string}
       set_number: {mandatory: true, type: string}
-      setting_operations_hooks_details_type_code: {mandatory: true, type: string, code_list: refs_fishery.hook_types}
+      setting_operations_hooks_details_type_code: {mandatory: true, type: string, code_list: refs_fishery.hook_and_terminal_devices}
       setting_operations_hooks_details_percentage: {type: number}
       setting_operations_hooks_details_variations: {type: string}
   E-SET-BAITS:
@@ -434,7 +434,7 @@ sheets:
       catch_number: {mandatory: true, type: string}
       specimen_number: {mandatory: true, type: string}
       specimen_details_additional_catch_details_ssi_gear_interaction_code: {mandatory: true, type: string, code_list: refs_biology.gear_interactions}
-      specimen_details_additional_catch_details_ssi_hook_type_code: {type: string, code_list: refs_fishery.hook_types}
+      specimen_details_additional_catch_details_ssi_hook_type_code: {type: string, code_list: refs_fishery.hook_and_terminal_devices}
       specimen_details_additional_catch_details_ssi_bait_condition_code: {type: string, code_list: refs_biology.bait_conditions}
       specimen_details_additional_catch_details_ssi_bait_type_code: {type: string, code_list: refs_biology.bait_types}
       specimen_details_additional_catch_details_ssi_leader_material_code: {type: string, code_list: refs_fishery.line_material_types}

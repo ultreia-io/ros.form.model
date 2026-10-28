@@ -3,7 +3,7 @@ title: "ROS reference data"
 output: html_document
 ---
 
-The six LL and PS models declare 58 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
+The six LL and PS models declare 57 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
 
 Each model also declares the registries used to check officers, observers,
 vessels and contacts. Registry matching policies belong to the affected fields;
@@ -13,7 +13,7 @@ This inventory compares the model declarations with the IOTC dissemination view 
 [ROS code-list catalogue](https://ros.ultreia.io/references/code_lists/codelists.csv)
 published on 26 October 2026.
 
-All 58 code-list IDs have exact catalogue entries. 8 IDs have an associated database view.
+All 57 code-list IDs have exact catalogue entries. 8 IDs have an associated database view.
 A dash in the view column means no view is declared in the dissemination mapping.
 
 For 4.0.0 LL, `sample_collected_type` uses `refs_biology.biological_materials`.
@@ -26,9 +26,9 @@ and `refs_biology.sample_preservation_methods`, respectively. Their workbook
 headers link to sampling methods and fish storage types instead.
 
 All three LL models use `refs_biology.species_predators` for observed predators.
-For hook types, 4.0.0 LL uses `refs_fishery.hook_types` in both hook fields,
-while 4.1.0 LL uses `refs_fishery.hook_and_terminal_devices` in `E-SET-HOOKS`
-and `refs_fishery.hook_types` in the specimen SSI sheet.
+All LL versions use `refs_fishery.hook_and_terminal_devices` for set hooks and specimen SSI hook types.
+
+The new list retains all 25 Hook Types codes and adds `TLL`.
 
 ## Code lists declared by the models
 
@@ -79,7 +79,7 @@ and `refs_fishery.hook_types` in the specimen SSI sheet.
 | `refs_data.data_sources_ro`   | `V_SOURCES_RO` | `DATA_SOURCES_RO.csv`   |
 | `refs_data.logical_responses` | —              | `LOGICAL_RESPONSES.csv` |
 
-### `refs_fishery` (24)
+### `refs_fishery` (23)
 
 | ROS reference                             | Source view | Catalogue CSV                    |
 | ----------------------------------------- | ----------- | -------------------------------- |
@@ -91,7 +91,6 @@ and `refs_fishery.hook_types` in the specimen SSI sheet.
 | `refs_fishery.fish_processing_types`      | —           | `FISH_PROCESSING_TYPES.csv`      |
 | `refs_fishery.fish_storage_types`         | —           | `FISH_STORAGE_TYPES.csv`         |
 | `refs_fishery.hook_and_terminal_devices`  | —           | `HOOK_AND_TERMINAL_DEVICES.csv`  |
-| `refs_fishery.hook_types`                 | —           | `HOOK_TYPES.csv`                 |
 | `refs_fishery.hull_material_types`        | —           | `HULL_MATERIAL_TYPES.csv`        |
 | `refs_fishery.light_colours`              | —           | `LIGHT_COLOURS.csv`              |
 | `refs_fishery.light_types`                | —           | `LIGHT_TYPES.csv`                |
