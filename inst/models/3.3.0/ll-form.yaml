@@ -12,7 +12,7 @@ references:
     - refs_biology.fates
     - refs_biology.gear_interactions
     - refs_biology.handling_methods
-    - refs_biology.incidental_captures_conditions
+    - refs_biology.individual_conditions
     - refs_biology.measurement_tools
     - refs_biology.measurements
     - refs_biology.sample_preservation_methods
@@ -397,8 +397,8 @@ sheets:
       catch_number: {mandatory: true, type: string}
       specimen_number: {mandatory: true, type: string}
       specimen_details_all_species_sampling_period_code: {mandatory: true, type: string, code_list: refs_biology.sampling_periods}
-      specimen_details_non_target_species_additional_details_condition_at_capture_code: {type: string, code_list: refs_biology.incidental_captures_conditions}
-      specimen_details_non_target_species_additional_details_condition_at_release_code: {type: string, code_list: refs_biology.incidental_captures_conditions}
+      specimen_details_non_target_species_additional_details_condition_at_capture_code: {type: string, code_list: refs_biology.individual_conditions}
+      specimen_details_non_target_species_additional_details_condition_at_release_code: {type: string, code_list: refs_biology.individual_conditions}
       specimen_details_all_species_depredation_details_depredation_source_code: {type: string, code_list: refs_biology.scars}
       specimen_details_all_species_depredation_details_observed_predator_code: {type: string, code_list: refs_biology.species_predators}
       specimen_details_all_species_sampling_method_code: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_sampling_collections}

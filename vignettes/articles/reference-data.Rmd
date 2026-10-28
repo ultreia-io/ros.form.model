@@ -3,7 +3,7 @@ title: "ROS reference data"
 output: html_document
 ---
 
-The six LL and PS models declare 57 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
+The six LL and PS models declare 56 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
 
 Each model also declares the registries used to check officers, observers,
 vessels and contacts. Registry matching policies belong to the affected fields;
@@ -13,7 +13,7 @@ This inventory compares the model declarations with the IOTC dissemination view 
 [ROS code-list catalogue](https://ros.ultreia.io/references/code_lists/codelists.csv)
 published on 26 October 2026.
 
-All 57 code-list IDs have exact catalogue entries. 8 IDs have an associated database view.
+All 56 code-list IDs have exact catalogue entries. 8 IDs have an associated database view.
 A dash in the view column means no view is declared in the dissemination mapping.
 
 For 4.0.0 LL, `sample_collected_type` uses `refs_biology.biological_materials`.
@@ -30,6 +30,10 @@ All LL versions use `refs_fishery.hook_and_terminal_devices` for set hooks and s
 
 The new list retains all 25 Hook Types codes and adds `TLL`.
 
+All models use `refs_biology.individual_conditions` for capture and release conditions.
+
+Shared validation aliases accept the old codes `D`, `S` and `U` as `DE`, `ST` and `UN`, respectively.
+
 ## Code lists declared by the models
 
 ### `refs_admin` (3)
@@ -40,7 +44,7 @@ The new list retains all 25 Hook Types codes and adds `TLL`.
 | `refs_admin.entities`  | `V_ENTITIES` | `ENTITIES.csv`  |
 | `refs_admin.ports`     | —            | `PORTS.csv`     |
 
-### `refs_biology` (27)
+### `refs_biology` (26)
 
 | ROS reference                                            | Source view                  | Catalogue CSV                                   |
 | -------------------------------------------------------- | ---------------------------- | ----------------------------------------------- |
@@ -51,7 +55,6 @@ The new list retains all 25 Hook Types codes and adds `TLL`.
 | `refs_biology.fates`                                     | —                            | `FATES.csv`                                     |
 | `refs_biology.gear_interactions`                         | —                            | `GEAR_INTERACTIONS.csv`                         |
 | `refs_biology.handling_methods`                          | —                            | `HANDLING_METHODS.csv`                          |
-| `refs_biology.incidental_captures_conditions`            | —                            | `INCIDENTAL_CAPTURES_CONDITIONS.csv`            |
 | `refs_biology.individual_conditions`                     | —                            | `INDIVIDUAL_CONDITIONS.csv`                     |
 | `refs_biology.maturity_stages`                           | —                            | `MATURITY_STAGES.csv`                           |
 | `refs_biology.measurement_tools`                         | —                            | `MEASUREMENT_TOOLS.csv`                         |
