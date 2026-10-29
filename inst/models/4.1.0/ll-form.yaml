@@ -25,7 +25,7 @@ references:
     - refs_biology.bait_species
     - refs_biology.predator_species
     - refs_biology.tag_types
-    - refs_biology.types_of_fate
+    - refs_biology.fate_types
     - refs_biology.weight_measurement_tools
     - refs_biology.weight_measurements
     - refs_data.data_sources_ro
@@ -353,7 +353,7 @@ sheets:
       set_id: {mandatory: true, type: string}
       catch_id: {mandatory: true, type: string}
       species: {mandatory: true, type: string, code_list: refs_biology.species}
-      fate_type: {mandatory: true, type: string, code_list: refs_biology.types_of_fate}
+      fate_type: {mandatory: true, type: string, code_list: refs_biology.fate_types}
       fate_code: {mandatory: true, type: string, code_list: refs_biology.fates}
       sampling_method: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_catch_estimation}
       number_of_fish: {mandatory: true, type: integer, minimum: 1}

@@ -17,7 +17,7 @@ references:
     - refs_biology.sex
     - refs_biology.species
     - refs_biology.tag_types
-    - refs_biology.types_of_fate
+    - refs_biology.fate_types
     - refs_fishery.fad_raft_designs
     - refs_fishery.fad_tail_designs
     - refs_fishery.fish_preservation_methods
@@ -259,7 +259,7 @@ sheets:
       set_number: {mandatory: true, type: string}
       catch_number: {mandatory: true, type: string}
       catch_details_species_code: {mandatory: true, type: string, code_list: refs_biology.species}
-      catch_details_fate_type_code: {mandatory: true, type: string, code_list: refs_biology.types_of_fate}
+      catch_details_fate_type_code: {mandatory: true, type: string, code_list: refs_biology.fate_types}
       catch_details_fate_code: {mandatory: true, type: string, code_list: refs_biology.fates}
       catch_details_sampling_method_code: {mandatory: true, type: string, code_list: refs_biology.sampling_methods_for_catch_estimation}
       catch_details_num_fish: {mandatory: true, type: integer}
