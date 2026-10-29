@@ -22,7 +22,7 @@ references:
     - refs_biology.sampling_protocols
     - refs_biology.sex
     - refs_biology.species
-    - refs_biology.species_baits
+    - refs_biology.bait_species
     - refs_biology.species_predators
     - refs_biology.tag_types
     - refs_biology.types_of_fate
@@ -310,7 +310,7 @@ sheets:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
       bait_condition: {mandatory: true, type: string, code_list: refs_biology.bait_conditions}
-      bait_species: {mandatory: true, type: string, code_list: refs_biology.species_baits}
+      bait_species: {mandatory: true, type: string, code_list: refs_biology.bait_species}
       bait_percentage: {mandatory: true, type: number}
       bait_dye_colour: {type: string}
   E-SET-HAULING:
