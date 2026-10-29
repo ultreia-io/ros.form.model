@@ -18,7 +18,7 @@ references:
     - refs_biology.sampling_methods_for_sampling_collections
     - refs_biology.sex
     - refs_biology.species
-    - refs_biology.species_cetaceans
+    - refs_biology.cetacean_species
     - refs_biology.tag_types
     - refs_biology.types_of_fate
     - refs_biology.weight_measurement_tools
@@ -224,7 +224,7 @@ sheets:
       observed_trip_id: {mandatory: true, type: string}
       set_id: {mandatory: true, type: string}
       sighting_before_setting: {mandatory: true, type: string, code_list: refs_data.logical_responses}
-      species: {mandatory: true, type: string, code_list: refs_biology.species_cetaceans}
+      species: {mandatory: true, type: string, code_list: refs_biology.cetacean_species}
       number_sighted: {mandatory: true, type: integer}
       caught_inside_net: {mandatory: true, type: string, code_list: refs_data.logical_responses}
   E-SET-CATCHES:
