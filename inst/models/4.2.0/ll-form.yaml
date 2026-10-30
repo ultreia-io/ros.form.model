@@ -222,6 +222,7 @@ sheets:
       tori_line_details_tori_line_attached_height_m: {mandatory: true, type: number}
       tori_line_details_towed_objects_type: {type: string}
       tori_line_details_towed_objects_number: {type: integer}
+      tori_line_details_tori_line_sketch_in_trip_report: {type: string, code_list: refs_data.logical_responses}
       other_mitigation_devices_device_1: {type: string, code_list: refs_fishery.mitigation_devices}
       other_mitigation_devices_device_2: {type: string, code_list: refs_fishery.mitigation_devices}
       other_mitigation_devices_device_3: {type: string, code_list: refs_fishery.mitigation_devices}
