@@ -255,6 +255,7 @@ sheets:
       floatline_length_2_m: {type: number}
       floatline_length_3_m: {type: number}
       number_hooks_between_floats: {mandatory: true, type: integer}
+      distance_between_branchlines_m: {type: number}
       shark_lines_set: {mandatory: true, type: string, code_list: refs_data.logical_responses}
       shark_lines_number: {type: integer}
       leader_material_type: {mandatory: true, type: string, code_list: refs_fishery.line_material_types}
