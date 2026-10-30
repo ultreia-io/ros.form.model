@@ -250,6 +250,7 @@ sheets:
       clip_on_time_buoys: {type: number}
       number_total_hooks_set: {mandatory: true, type: integer}
       number_total_floats_set: {type: integer}
+      number_radio_dhan_buoys_set: {type: integer}
       number_hooks_between_floats: {mandatory: true, type: integer}
       shark_lines_set: {mandatory: true, type: string, code_list: refs_data.logical_responses}
       shark_lines_number: {type: integer}
