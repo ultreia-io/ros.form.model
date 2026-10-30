@@ -49,7 +49,7 @@ sheets:
     layout: {kind: cells, column_count: 7}
     fields:
       form_identifier: {mandatory: true, location: D4, type: string, enum: [ROS-PS]}
-      form_revision: {mandatory: true, location: G4, type: integer, enum: [4]}
+      form_revision: {mandatory: true, location: G4, type: string, enum: ["4.2.0"]}
       liaison_officer_full_name: {mandatory: true, location: D9, type: string, registry: {id: ros_meta.focal_point, column: full_name, matching: name}}
       liaison_officer_email: {mandatory: true, location: D10, type: email, registry: {id: ros_meta.focal_point, column: email}}
       organisation_name: {mandatory: true, location: G9, type: string}
