@@ -8,6 +8,7 @@
 \alias{ROS_FORM_VERSION_3_3_0}
 \alias{ROS_FORM_VERSION_4_0_0}
 \alias{ROS_FORM_VERSION_4_1_0}
+\alias{ROS_FORM_VERSION_4_2_0}
 \alias{ROS_FORM_VERSIONS}
 \title{Supported ROS workbook forms}
 \format{
@@ -26,14 +27,17 @@ ROS_FORM_VERSION_4_0_0
 
 ROS_FORM_VERSION_4_1_0
 
+ROS_FORM_VERSION_4_2_0
+
 ROS_FORM_VERSIONS
 }
 \description{
 \code{ROS_FORM_LL} and \code{ROS_FORM_PS} are the form identifiers accepted by
 \code{\link[=ros_form]{ros_form()}}. \code{ROS_FORMS} lists both identifiers, and
 \code{ROS_FORM_VERSIONS} lists the explicitly selectable versions.
-\code{ROS_FORM_VERSION_3_3_0}, \code{ROS_FORM_VERSION_4_0_0}, and
-\code{ROS_FORM_VERSION_4_1_0} name each supported version; none is a default.
+\code{ROS_FORM_VERSION_3_3_0}, \code{ROS_FORM_VERSION_4_0_0},
+\code{ROS_FORM_VERSION_4_1_0}, and \code{ROS_FORM_VERSION_4_2_0} name each version; none is a default.
+Version 4.2.0 starts from 4.1.0 for the next form revision.
 }
 \examples{
 ROS_FORM_LL

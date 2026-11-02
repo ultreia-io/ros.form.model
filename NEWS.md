@@ -1,3 +1,9 @@
+# ros.form.model 0.3.0
+
+- Add LL 4.2.0 fields for buoy counts, floatline lengths and branchline distance.
+- Update LL 4.2.0 mitigation fields and PS 4.2.0 specimen fields.
+- Correct form version declarations for LL and PS 4.1.0 and 4.2.0.
+
 # ros.form.model 0.2.0
 
 - Define primary keys for ROS table sheets.
