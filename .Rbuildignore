@@ -17,3 +17,7 @@
 ^\.idea$
 ^build/(?!vignette\.rds$).*
 ^vignettes/articles$
+^cran-comments\.md$
+^pkgdown$
+^coverage.*$
+(^|/)\.gitkeep$

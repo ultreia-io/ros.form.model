@@ -6,3 +6,6 @@
 **/*.tar.gz
 **/*.Rcheck/
 .idea/**/*
+
+/pkgdown/assets/
+/coverage.xml
