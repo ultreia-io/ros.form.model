@@ -5,14 +5,18 @@
 #' `ROS_FORM_VERSIONS` lists the explicitly selectable versions.
 #' `ROS_FORM_VERSION_3_3_0`, `ROS_FORM_VERSION_4_0_0`,
 #' `ROS_FORM_VERSION_4_1_0`, and `ROS_FORM_VERSION_4_2_0` name each version; none is a default.
-#' Version 4.2.0 starts from 4.1.0 for the next form revision.
 #'
 #' @format Character constants.
 #' @examples
+#' # Inspect ROS_FORM_LL.
 #' ROS_FORM_LL
+#' # Inspect ROS_FORM_PS.
 #' ROS_FORM_PS
+#' # Inspect ROS_FORMS.
 #' ROS_FORMS
+#' # Inspect ROS_FORM_VERSIONS.
 #' ROS_FORM_VERSIONS
+#' # Load the selected form model.
 #' ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_4_0_0)
 #' @name ros_form_constants
 NULL

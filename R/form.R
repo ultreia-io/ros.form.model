@@ -1,3 +1,5 @@
+# Public operations ---------------------------------------------------------
+
 #' Read one versioned ROS form
 #'
 #' @param name Workbook name: `ROS_FORM_LL` (longline) or `ROS_FORM_PS` (purse seine).
@@ -13,9 +15,12 @@
 #'   the declarations.
 #' @seealso [form.model documentation](https://ultreia-io.github.io/form.model/)
 #' @examples
-#' model <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
-#' form.model::form_metadata(model)
-#' names(form.model::form_sheets(model))
+#' # Load the selected form model.
+#' form_model_definition <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
+#' # Inspect its identity and version.
+#' form.model::form_metadata(form_model_definition)
+#' # List its sheets in definition order.
+#' names(form.model::form_sheets(form_model_definition))
 #' @export
 ros_form <- function(name, version) {
   if (missing(version)) stop("Supply an explicit ROS data-model version", call. = FALSE)

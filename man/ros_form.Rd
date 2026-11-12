@@ -28,9 +28,12 @@ Use \code{form.model::form_fields()} and \code{form.model::form_sheets()} to ins
 the declarations.
 }
 \examples{
-model <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
-form.model::form_metadata(model)
-names(form.model::form_sheets(model))
+# Load the selected form model.
+form_model_definition <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
+# Inspect its identity and version.
+form.model::form_metadata(form_model_definition)
+# List its sheets in definition order.
+names(form.model::form_sheets(form_model_definition))
 }
 \seealso{
 \href{https://ultreia-io.github.io/form.model/}{form.model documentation}
