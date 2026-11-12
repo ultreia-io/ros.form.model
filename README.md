@@ -1,58 +1,69 @@
 # ros.form.model
 
-[![Build](https://github.com/ultreia-io/ros.form.model/actions/workflows/Build.yaml/badge.svg?branch=develop)](https://github.com/ultreia-io/ros.form.model/actions/workflows/Build.yaml?query=branch%3Adevelop)
-[![Website](https://img.shields.io/badge/website-documentation-blue)](https://ultreia-io.github.io/ros.form.model/)
-[![Latest release](https://img.shields.io/github/v/release/ultreia-io/ros.form.model?display_name=tag&sort=semver)](https://github.com/ultreia-io/ros.form.model/releases/latest)
-[![License](https://img.shields.io/github/license/ultreia-io/ros.form.model)](https://github.com/ultreia-io/ros.form.model/blob/develop/LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/ultreia-io/ros.form.model/Build.yaml?branch=develop&label=Build&logo=githubactions&logoColor=white)](https://github.com/ultreia-io/ros.form.model/actions/workflows/Build.yaml?query=branch%3Adevelop)
+[![Website](https://img.shields.io/badge/website-documentation-blue?logo=readthedocs&logoColor=white)](https://ultreia-io.github.io/ros.form.model/index.html)
+[![License](https://img.shields.io/badge/license-GPL--3-blue?logo=gnu&logoColor=white)](https://github.com/ultreia-io/ros.form.model/blob/main/LICENSE)
 
-Inspect IOTC Regional Observer Scheme form definitions for longline (LL) and purse seine (PS).
+[![Latest release](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Fultreia-io%2Fros.form.model%2Freleases%2Flatest&query=%24.tag_name&label=Latest%20release&color=blue&logo=github&logoColor=white)](https://github.com/ultreia-io/ros.form.model/releases/latest)
+![CRAN release](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcrandb.r-pkg.org%2Fros.form.model&query=%24.Version&label=CRAN%20release&color=brightgreen&logo=r&logoColor=white)
 
-Use this package to find expected sheets, fields and cell locations for a particular form version.
+[![Coverage develop](https://img.shields.io/codecov/c/github/ultreia-io/ros.form.model/develop?label=coverage%20develop&logo=codecov)](https://app.codecov.io/gh/ultreia-io/ros.form.model/tree/develop)
+[![Coverage main](https://img.shields.io/codecov/c/github/ultreia-io/ros.form.model/main?label=coverage%20main&logo=codecov)](https://app.codecov.io/gh/ultreia-io/ros.form.model/tree/main)
 
-To validate submitted Excel forms, start with [ros.form.validation](https://ultreia-io.github.io/ros.form.validation/).
+## About this project
+
+> `ros.form.model` supplies versioned ROS form models for consumers of longline and purse-seine data.
+
+Read the [Terminology](https://ultreia-io.github.io/ros.form.model/articles/terminology.html) for the concepts used here.
+
+A ROS form is an Excel workbook used to report observations to the Indian Ocean Tuna Commission.
+
+Its form model describes the expected sheets, fields, cell locations, keys and constraints in YAML.
+
+This package provides LL and PS definitions for versions 3.3.0, 4.0.0, 4.1.0 and 4.2.0.
+
+Consumers select an explicit gear and version, then inspect the definition through `form.model`.
+
+Exporters, importers and validators can share the same definition without maintaining their own workbook layouts.
+
+## Related packages
+
+* [form.model](https://github.com/ultreia-io/form.model) reads and checks the form definitions.
+* [ros.form.references](https://github.com/ultreia-io/ros.form.references) supplies ROS catalogues and lookup policies.
+* [ros.form.validation](https://github.com/ultreia-io/ros.form.validation) validates submitted forms and produces reports.
 
 ## Installation
 
-Install the latest released version:
+Install the latest version available on CRAN:
 
 ```r
-install.packages("pak") # Once
-pak::pak("ultreia-io/ros.form.model@*release")
+# Install ros.form.model from CRAN.
+install.packages("ros.form.model")
 ```
 
-`pak` installs the required dependencies automatically.
+Alternatively, install the latest GitHub release:
+
+```r
+# Install the package installer once.
+install.packages("pak")
+# Install the latest released ros.form.model package.
+pak::pak("ultreia-io/ros.form.model@*release")
+```
 
 For the development version:
 
 ```r
+# Install ros.form.model from the development branch.
 pak::pak("ultreia-io/ros.form.model@develop")
 ```
 
-## Inspect a form
+## Getting started
 
-```r
-library(ros.form.model)
+Follow the [Getting started guide](https://ultreia-io.github.io/ros.form.model/articles/ros.form.model.html) to inspect a form model.
 
-model <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
-names(form.model::form_sheets(model))
-form.model::form_fields(model, sheet = "META")
-form.model::form_code_lists(model)
-form.model::form_registries(model)
-```
+## Guides
 
-This displays the expected sheets, META fields, code lists and registries.
-It does not open a submitted Excel file.
-
-Follow [Choose and inspect a form](https://ultreia-io.github.io/ros.form.model/articles/inspect-form.html) for gear, version and coordinate examples.
-
-See [ROS reference data](https://ultreia-io.github.io/ros.form.model/articles/reference-data.html)
-for code-list views and catalogue gaps.
-
-## Further information
-
-- [Function reference](https://ultreia-io.github.io/ros.form.model/reference/index.html).
-- [Contributing](https://ultreia-io.github.io/ros.form.model/CONTRIBUTING.html) and [maintenance](https://ultreia-io.github.io/ros.form.model/DEVELOPMENT.html).
-
-## License
-
-GPL-3. See [LICENSE](https://github.com/ultreia-io/ros.form.model/blob/main/LICENSE).
+* [ROS reference data](https://ultreia-io.github.io/ros.form.model/articles/reference-data.html).
+* [Function reference](https://ultreia-io.github.io/ros.form.model/reference/index.html).
+* [Contributing](https://ultreia-io.github.io/ros.form.model/CONTRIBUTING.html).
+* [Maintainer guide](https://ultreia-io.github.io/ros.form.model/DEVELOPMENT.html).

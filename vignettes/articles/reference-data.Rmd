@@ -3,11 +3,11 @@ title: "ROS reference data"
 output: html_document
 ---
 
-The six LL and PS models declare 56 distinct code-list IDs across versions 3.3.0, 4.0.0 and 4.1.0.
+This inventory covers 56 code-list IDs in the LL and PS form models for versions 3.3.0, 4.0.0 and 4.1.0.
 
-Each model also declares the registries used to check officers, observers,
-vessels and contacts. Registry matching policies belong to the affected fields;
-the registry data remains separate from the models.
+Form models also bind fields to catalogues for officers, observers, vessels and contacts.
+
+Lookup policies and reference data belong to `ros.form.references`.
 
 This inventory compares the model declarations with the IOTC dissemination view mapping and the
 [ROS code-list catalogue](https://ros.ultreia.io/references/code_lists/codelists.csv)
@@ -176,5 +176,3 @@ form models. The shared `ros.form.validation/inst/registry-aliases.csv` contains
 | `ros_meta.focal_point` | `full_name`   | Chia-Chun WU    | WU JIA CHUN    |
 | `ros_meta.vessel`      | `vessel_name` | CLIPPERTON      | LE CLIPPERTON  |
 | `ros_meta.vessel`      | `vessel_name` | MARIUS 3        | LE MARIUS 3    |
-
-The catalogue also contains `ros_meta.observer_identifier_mapping`; no form model declares it.

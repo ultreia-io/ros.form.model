@@ -1,0 +1,146 @@
+---
+title: "Getting started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## About this guide
+
+Use this guide to identify expected fields and locate their cells in a form.
+
+The Terminology guide defines the concepts used here.
+
+Install `ros.form.model` using the instructions on the home page. This package supplies definitions, not blank Excel forms.
+
+## Choose the gear and version
+
+Read the version from the submitted form or its accompanying documentation before choosing the model.
+
+Use `ROS_FORM_LL` for longline or `ROS_FORM_PS` for purse seine. Versions 3.3.0, 4.0.0, 4.1.0 and 4.2.0 are distinct.
+
+```{r}
+library(ros.form.model)
+# List the supported form identifiers.
+ROS_FORMS
+# List the supported form versions.
+ROS_FORM_VERSIONS
+# Load the explicitly selected form model.
+form_model_definition <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_3_3_0)
+```
+
+If the version is unclear, ask the provider to confirm it before validating the form.
+
+## Find a sheet and its fields
+
+```{r}
+# List the sheets in form model order.
+names(form.model::form_sheets(form_model_definition))
+# Inspect the metadata sheet layout.
+form.model::form_layout(form_model_definition, id = "META")
+# Read the metadata field definitions.
+form_model_fields <- form.model::form_fields(form_model_definition, sheet = "META")
+# List the sheets in form model order.
+names(form_model_fields)
+# Inspect the first metadata field.
+form_model_fields[[1L]]
+```
+
+The sheet list follows model order. Field definitions show their name, type, mandatory flag and coordinates.
+
+Field identifiers combine the exact sheet name and field name: `<sheet>.<field>`.
+
+Cell layouts declare fixed coordinates. Table fields follow column order; the layout gives the starting row.
+
+## Inspect primary keys
+
+Table sheets declare ordered primary keys using the field names of each supported version.
+
+```{r}
+# Inspect the fields that identify a record.
+form.model::form_sheets(form_model_definition)[["E-SET-CATCHES"]]$primary_key
+```
+
+The declarations identify rows within each sheet of a submitted form:
+
+- `V-TRIP`: trip.
+- `E-SET`: trip and set.
+- `E-SET-CATCHES`: trip, set and catch.
+- Both specimen sheets: trip, set, catch and specimen.
+- Tag details: trip, set, catch and specimen.
+- LL 3.3.0 branchline configurations: trip, configuration and section.
+- Hooks: trip, set and hook type.
+- Baits: trip, set, species and condition.
+- Lights: trip, set, light type and colour.
+- PS branchlines: trip, set and configuration.
+- Surface or daily activities: trip and activity datetime.
+
+Version 3.3.0 uses the corresponding `*_number` fields; versions 4.0.0 and 4.1.0 use `*_id` fields.
+
+These entries apply where the corresponding sheet exists; inspect `primary_key` for its exact field names.
+
+These are model declarations; submitted-data checks must be implemented by `form.validation`.
+
+## Optional keys and row information
+
+LL hauling biteoffs use `unique_key` in versions 3.3.0, 4.0.0, 4.1.0 and 4.2.0.
+LL branchline configurations use it in versions 4.0.0, 4.1.0 and 4.2.0.
+These sheets retain their parent keys and do not declare primary keys.
+
+```{r}
+# Load the explicitly selected form model.
+biteoff_form_model <- ros_form(name = ROS_FORM_LL, version = ROS_FORM_VERSION_4_0_0)
+# Select the hauling biteoff sheet definition.
+biteoff_sheet_definition <- form.model::form_sheets(biteoff_form_model)[["E-SET-HAULING-BITEOFFS"]]
+# Inspect the link to the parent sheet.
+biteoff_sheet_definition$parent_key
+# Inspect the optional record key.
+biteoff_sheet_definition$unique_key
+# Inspect the row information requirement.
+biteoff_sheet_definition$at_least_one
+```
+
+A complete trip/set/configuration combination must be unique within the biteoff sheet.
+Missing configurations remain allowed. Different configurations may belong to the same set.
+
+For biteoffs, `at_least_one` warns when a populated row supplies neither configuration nor biteoff count.
+For branchline configurations, it warns when only the trip identifier is supplied.
+A count of zero is supplied information. Entirely empty rows do not trigger this check.
+Parent-key and mandatory-field errors remain separate from these warnings.
+
+## Locate a field from a report
+
+```{r}
+# Select the liaison officer field.
+form_model_field <- form_model_fields[["META.liaison_officer_full_name"]]
+# Read the physical row number.
+form_model_field$row
+# Read the physical column number.
+form_model_field$column
+# Inspect the required-value setting.
+form_model_field$mandatory
+```
+
+Row and column numbers are one-based: column 1 is A, column 5 is E.
+
+Use these coordinates to inspect the original Excel form. Loading a definition does not change that form.
+
+A field may also declare allowed values or a reference list. Reference contents are supplied during validation.
+
+Continue with [ros.form.validation](https://ultreia-io.github.io/ros.form.validation/) to check a submitted form.
+
+## Download a form model
+
+```{r, echo=FALSE, results='asis'}
+# Show website downloads or the corresponding installed resource.
+if (identical(Sys.getenv("IN_PKGDOWN"), "true")) {
+  # Link to the unchanged LL and PS YAML definitions copied into the website.
+  cat("* [LL 4.2.0 form model](../models/4.2.0/ll-form.yaml)\n",
+      "* [PS 4.2.0 form model](../models/4.2.0/ps-form.yaml)\n", sep = "")
+} else {
+  # Identify the installed directory containing the same definitions.
+  cat("The form models are installed under `system.file(\"models\", package = \"ros.form.model\")`.\n")
+}
+```

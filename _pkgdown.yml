@@ -8,8 +8,33 @@ news:
   cran_dates: false
 navbar:
   structure:
-    left: [articles, reference, news]
+    left: [intro, reference, articles, news, coverage, community]
     right: [search, github, lightswitch]
+  components:
+    articles:
+      text: Articles
+      menu:
+        - text: Terminology
+          href: articles/terminology.html
+        - text: ROS reference data
+          href: articles/reference-data.html
+    coverage:
+      text: Coverage
+      href: https://app.codecov.io/gh/ultreia-io/ros.form.model
+    intro:
+      text: Getting started
+      href: articles/ros.form.model.html
+    community:
+      text: Community
+      menu:
+        - text: Contributing
+          href: CONTRIBUTING.html
+        - text: Maintainer guide
+          href: DEVELOPMENT.html
+        - text: Security policy
+          href: SECURITY.html
+        - text: Code of conduct
+          href: CODE_OF_CONDUCT.html
 reference:
   - title: Public API
     contents: [ros_form, ros_form_constants]
@@ -17,7 +42,8 @@ articles:
   - title: Practical guides
     navbar: Guides
     contents:
-      - articles/inspect-form
+      - terminology
+      - ros.form.model
       - articles/reference-data
 
 footer:
@@ -27,4 +53,4 @@ footer:
   components:
     company: "[ultreia.io](https://ultreia.io/)"
     copyright: "· © 2026"
-    license: "· [License: GPL-3](https://github.com/ultreia-io/ros.form.model/blob/main/LICENSE)"
+    license: "· [License: GPL-3](https://ultreia-io.github.io/ros.form.model/LICENSE)"

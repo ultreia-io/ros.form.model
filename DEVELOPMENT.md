@@ -1,37 +1,52 @@
-# Developing ros.form.model
+# Maintainer guide
 
 `develop` is the integration branch. `main` contains releases. Implementation branches use `feature/`.
 
-Install the `form.model` version declared in `DESCRIPTION`, then load this package:
+## Code organization
 
-```r
-pkgload::load_all(".")
-```
+The files organize functions in one package namespace. You do not source each file separately.
 
-Use the example in the README to inspect a form.
+| File                       | Responsibility                               |
+| -------------------------- | -------------------------------------------- |
+| `constants.R`              | Declare supported ROS forms and versions.    |
+| `form.R`                   | Load and check the selected form definition. |
+| `ros.form.model-package.R` | Provide package-level documentation.         |
+
+## Form definitions
+
+Versioned definitions live in `inst/models/<version>/`. LL and PS each have their own YAML file.
+
+Keep the form identifiers, version constants and packaged definitions consistent.
 
 ## Local verification
 
-Install the package dependencies and development tools, including `roxygen2`, first.
-
-Run roxygen before building. Commit generated `man/*.Rd` files and `NAMESPACE` alongside their roxygen source changes.
+Run from the package root with development dependencies and LaTeX installed:
 
 ```sh
-Rscript -e 'roxygen2::roxygenise()'
-mkdir -p build
-(cd build && R CMD build --no-manual ..)
-package_version=$(Rscript -e 'cat(read.dcf("DESCRIPTION")[1, "Version"])')
-R CMD check --no-manual --output=build "build/ros.form.model_${package_version}.tar.gz"
-Rscript tools/build-site.R
+Rscript tools/check.R
 ```
 
-Archives and check results go under `build/`. Documentation goes under `docs/`.
+This generates documentation, runs tests, builds and checks the archive with `--as-cran`, then builds the website.
 
-## Release
+Local and CI checks share the CRAN mirror settings in `tools/check.Renviron`. All CRAN checks remain enabled.
+
+The **Build** workflow measures coverage with `covr` on Linux after successful checks and uploads it to Codecov.
+
+The README coverage badges link to the Codecov report.
+
+Archives and check output stay in `build/`.
+
+`roxygen2`, `rcmdcheck`, and `pkgload` are development tools, not runtime dependencies.
+
+Review coverage gaps for missing behaviour. Check installed resources, runnable examples, and website navigation.
+
+Check every supported form and version against the released form.model schema before a release.
+
+## GitHub Release
 
 1. **Prepare the release on `develop`:**
 
-   1. **Prepare the release files:** update the version in `DESCRIPTION`, finalize `NEWS.md` and documentation.
+   1. **Prepare the release files:** update the version in `DESCRIPTION`, finalize `NEWS.md`, `cran-comments.md` and documentation.
    2. **Perform the [local checks](#local-verification).**
    3. **Commit the changes:** use `[ros.form.model] Release <version>`.
    4. **Push the release commit.**
@@ -46,5 +61,40 @@ Archives and check results go under `build/`. Documentation goes under `docs/`.
 
    1. **Wait for the checks:** all checks on the release PR must be green.
    2. **Merge:** click **Merge pull request**, then **Confirm merge**.
+   3. Merging automatically starts the **Publish Release** workflow.
 
-**Publish Release** publishes the package, checksum and documentation automatically.
+The **Publish Release** workflow:
+
+1. Publishes the package archive, checksum and documentation.
+2. **Submits the same archive to CRAN**.
+
+## Manual CRAN submission
+
+Use this fallback only if the release has not already been submitted by CI.
+
+Start from a clean working tree. Replace `version` with the release version to submit.
+
+```sh
+# Fetch the published release tags.
+git fetch origin --tags
+# Check out the release tag.
+git switch --detach version
+```
+
+Run these commands in R from the package root, with `devtools` installed.
+
+```r
+# Build and run R CMD check --as-cran, including the PDF manual and incoming checks.
+devtools::check(args = "--as-cran", manual = TRUE, remote = TRUE, error_on = "warning")
+
+# After resolving errors and warnings and reviewing NOTES, submit the release to CRAN.
+devtools::submit_cran()
+```
+
+This manual route rebuilds from the release tag. CI submits the existing GitHub archive unchanged.
+
+Confirm CRAN's email, then wait for its checks and response.
+
+## License
+
+GPL-3. See [LICENSE](LICENSE).

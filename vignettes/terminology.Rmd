@@ -1,0 +1,42 @@
+---
+title: "Terminology"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Terminology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Main concepts
+
+| Term       | Meaning                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| ROS        | The IOTC Regional Observer Scheme.                                   |
+| Form       | An Excel workbook used to report observations.                       |
+| Form model | A YAML definition of the form's expected structure and constraints.  |
+| Consumer   | Software that uses a form model, such as an exporter or a validator. |
+
+## Selecting a form model
+
+| Term         | Meaning                                                    |
+|--------------|------------------------------------------------------------|
+| Gear         | Longline (LL) or purse seine (PS).                         |
+| Form version | The explicit version of a ROS form definition.             |
+| Sheet        | A named worksheet described by the form model.             |
+| Field        | One declared value, located in a cell or a table column.   |
+| Layout       | The positions of fixed cells or the start of a data table. |
+
+### Constraints and keys
+
+| Term        | Meaning                                                            |
+|-------------|--------------------------------------------------------------------|
+| Constraint  | A requirement on a field or record.                                |
+| Primary key | Fields whose combined values identify a record within a sheet.     |
+| Parent key  | Fields linking a record to a record in another sheet.              |
+| Unique key  | Fields whose combined values must be unique when all are supplied. |
+
+### References
+
+A reference binding identifies a catalogue, table and lookup used by a field.
+
+The form model carries the binding; `ros.form.references` supplies lookup policies and reference data.
