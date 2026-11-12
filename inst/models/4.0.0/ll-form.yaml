@@ -193,8 +193,9 @@ sheets:
       special_equipment_or_machinery_bait_casting_machine: {mandatory: true, type: string, reference: {catalogue: code_lists, table: refs_data.logical_responses, lookup: code}}
   G-CONFIG-BRANCHLINES:
     layout: {kind: table, start_row: 3}
-    primary_key: [observed_trip_id, branchline_configurations_configuration_id]
+    unique_key: [observed_trip_id, branchline_configurations_configuration_id]
     parent_key: {sheet: O-INFO, fields: [observed_trip_id]}
+    at_least_one: {fields: [branchline_configurations_configuration_id, branchline_configurations_section_id, branchline_configurations_material_type, branchline_configurations_length_m, branchline_configurations_diameter_cm, additional_branchline_details_storage_1, additional_branchline_details_storage_2, additional_branchline_details_storage_3, additional_branchline_details_storage_4], severity: warning}
     fields:
       observed_trip_id: {mandatory: true, type: string}
       branchline_configurations_configuration_id: {type: string}
@@ -337,7 +338,8 @@ sheets:
       sampling_protocol: {mandatory: true, type: string, reference: {catalogue: code_lists, table: refs_biology.sampling_protocols, lookup: code}}
   E-SET-HAULING-BITEOFFS:
     layout: {kind: table, start_row: 3}
-    primary_key: [observed_trip_id, set_id, branchline_configuration_id]
+    unique_key: [observed_trip_id, set_id, branchline_configuration_id]
+    at_least_one: {fields: [branchline_configuration_id, branchline_number_of_biteoffs], severity: warning}
     parent_key: {sheet: E-SET-HAULING, fields: [observed_trip_id, set_id]}
     fields:
       observed_trip_id: {mandatory: true, type: string}

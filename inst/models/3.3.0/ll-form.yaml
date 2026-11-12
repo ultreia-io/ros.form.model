@@ -363,7 +363,8 @@ sheets:
       hauling_operations_sampling_protocol_code: {mandatory: true, type: string, reference: {catalogue: code_lists, table: refs_biology.sampling_protocols, lookup: code}}
   E-SET-HAULING-BITEOFFS:
     layout: {kind: table, start_row: 6}
-    primary_key: [observed_trip_number, set_number, hauling_operations_biteoffs_details_branchline_configuration_number]
+    unique_key: [observed_trip_number, set_number, hauling_operations_biteoffs_details_branchline_configuration_number]
+    at_least_one: {fields: [hauling_operations_biteoffs_details_branchline_configuration_number, hauling_operations_biteoffs_details_branchline_num_biteoffs], severity: warning}
     parent_key: {sheet: E-SET-HAULING, fields: [observed_trip_number, set_number]}
     fields:
       observed_trip_number: {mandatory: true, type: string}
