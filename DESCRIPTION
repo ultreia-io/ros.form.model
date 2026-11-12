@@ -1,9 +1,10 @@
 Package: ros.form.model
 Title: Versioned Regional Observer Scheme Forms
-Version: 0.3.0
+Version: 0.4.0
 Authors@R:
-    person("Tony", "Chemit", role = c("aut", "cre"),
-           email = "dev@tchemit.fr")
+    person("Tony", "Chemit", role = c("aut", "cre", "cph"),
+           email = "dev@tchemit.fr",
+           comment = c(ORCID = "0009-0007-1802-5256", URL = "https://ultreia.io"))
 Description: Provides versioned Indian Ocean Tuna Commission Regional Observer
     Scheme definitions for longline and purse-seine workbooks. Exposes physical
     worksheet layouts, field declarations, and reference requirements through
@@ -15,7 +16,10 @@ BugReports: https://github.com/ultreia-io/ros.form.model/issues
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
 Imports: form.model (== 0.6.2)
-Suggests: pkgload
+Suggests: knitr, pkgload, rmarkdown, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/Needs/coverage: covr, xml2
 Roxygen: list(markdown = TRUE)
-Config/Needs/website: pkgdown, htmltools
+Config/Needs/website: pkgdown
 Config/roxygen2/version: 8.1.1
